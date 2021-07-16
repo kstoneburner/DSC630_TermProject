@@ -9,3 +9,5 @@ f1 = pd.read_csv(input_file1)
 f2 = pd.read_pickle(input_file2)
 df = pd.DataFrame(f2.toarray(),index = f1["time"])
 f1 = f1.drop("token", axis = 1)
+
+df["price"] = (f1["open"].values + f1["close"].values + f1["high"].values + f1["low"].values)/4
