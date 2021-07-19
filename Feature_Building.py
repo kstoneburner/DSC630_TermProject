@@ -17,11 +17,14 @@ y = (S1/pd.Series(lst))-1
 
 # %%
 from sklearn.decomposition import TruncatedSVD
-tsvd = TruncatedSVD(100)
-X = tsvd.fit_transform(X,y)
+tsvd = TruncatedSVD(1000)
+X_1000_pca = tsvd.fit_transform(X,y)
 
+#%%
+tsvd.explained_variance_.sum()
 # %%
-df = pd.DataFrame(X)
+df = pd.DataFrame(X_1000_pca)
 df["y"] = y
 # %%
-df.to_csv("1min_ml", compression="zip")
+df.to_csv("1min_ml_1000_pca", compression="zip")
+# %%
