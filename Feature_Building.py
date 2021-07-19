@@ -16,20 +16,12 @@ lst.append(lst[-1])
 y = (S1/pd.Series(lst))-1
 
 # %%
-from sklearn.decomposition import PCA
-
-pca = PCA(n_components="mle")
-pca.fit_transform(X,y)
-# %%
 from sklearn.decomposition import TruncatedSVD
 tsvd = TruncatedSVD(100)
 X = tsvd.fit_transform(X,y)
-# %%
-X.shape
+
 # %%
 df = pd.DataFrame(X)
 df["y"] = y
 # %%
-df.shape
-# %%
-df.to_csv("1min_for_ML _00_feat")
+df.to_csv("1min_ml", compression="zip")
