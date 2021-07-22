@@ -34,8 +34,8 @@ rmse = np.sqrt(mean_err)
 
 #%%
 import matplotlib.pyplot as plt
-plt.plot(range(len(regr_predict[0:200])), regr_predict[0:200])
-plt.plot(range(len(y_test[0:200])), y_test[0:200])
+plt.plot(range(len(regr_predict[0:100])), regr_predict[0:100])
+plt.plot(range(len(y_test[0:100])), y_test[0:100])
 
-# plot(x= range(len(y_test)), y=y_test)
+
 # %%
