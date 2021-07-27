@@ -1,10 +1,13 @@
 # %%
 import pandas as pd
 
-df = pd.read_csv("~/Documents/GitHub/Project/ignore_folder/1min_ml_1000_pca",compression="zip")
+df = pd.read_csv("~/Documents/GitHub/Project/ignore_folder/1min_ml_1000_tsvd",compression="zip")
 
 #%%
-X,y = df[df.columns[1:1001]], df[df.columns[101]]
+
+
+#%%
+X,y = df[df.columns[1:1001]], df[df.columns[1001]]
 
 # %%
 from sklearn.neural_network import MLPRegressor
@@ -19,23 +22,3 @@ regr.fit(X_train, y_train)
 
 #%%
 regr.score(X_test, y_test)
-
-#%%
-regr.c
-# %%
-score = cross_val_score(regr, X,y,n_jobs=-1,cv=3)
-# %%
-regr_predict = regr.predict(X_test)
-# %%
-import numpy as np
-err2= np.sqrt(abs((np.square(regr_predict) - np.square(y_test.values)))).sum()
-mean_err = err2/len(y_test)
-rmse = np.sqrt(mean_err)
-
-#%%
-import matplotlib.pyplot as plt
-plt.plot(range(len(regr_predict[0:100])), regr_predict[0:100])
-plt.plot(range(len(y_test[0:100])), y_test[0:100])
-
-
-# %%
